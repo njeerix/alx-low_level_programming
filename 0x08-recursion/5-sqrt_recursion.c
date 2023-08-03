@@ -13,7 +13,7 @@ int mid;
 if (low <= high)
 {
 mid = low + (high - low) / 2;
-sqr = (long)mid * mid;
+sqr = (long)mid *mid;
 if (sqr == n)
 return (mid);
 else if (sqr < n)

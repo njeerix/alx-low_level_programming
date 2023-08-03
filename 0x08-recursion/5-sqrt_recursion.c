@@ -1,22 +1,27 @@
 #include "main.h"
 /**
- * _find_sqrt - finds the square root of a number
+ * _find_sqrt - finds the square root of a number using binary search.
  * @n: the number whose the square root will be found
- * @to: The limit of testing numbers
- * Return: The square root of n if it has.
- *         -1 otherwise
+ * @low: the lower bound for the binary search.
+ * @high: The upper bound for the binary search.
+ * Return: The square root of n if it exists, -1 otherwise.
  */
-int _find_sqrt(int n, int to)
+int _find_sqrt(int n, int low, int high)
 {
-if (n < 0 || to < 0)
+long sqr;
+int mid;
+if (low <= high)
+{
+mid = low + (high - low) / 2;
+sqr = (long)mid * mid;
+if (sqr == n)
+return (mid);
+else if (sqr < n)
+return (_find_sqrt(n, mid + 1, high));
+else
+return (_find_sqrt(n, low, mid - 1));
+}
 return (-1);
-if (n == 0)
-return (0);
-if (n == 1)
-return (1);
-if (n == to * to)
-return (to);
-return (_find_sqrt(n, to - 1));
 }
 /**
  * _sqrt_recursion - rturns the natural square root of a number.
@@ -25,5 +30,7 @@ return (_find_sqrt(n, to - 1));
  */
 int _sqrt_recursion(int n)
 {
-return (_find_sqrt(n, n / 2));
+if (n < 0)
+return (-1);
+return (_find_sqrt(n, 0, n));
 }

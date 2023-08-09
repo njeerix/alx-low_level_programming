@@ -29,14 +29,13 @@ return (count);
  */
 char **strtow(char *str)
 {
-char **words;
+char **words = NULL;
 int word_count, i;
 int word_length, j;
 if (str == NULL || *str == '\0')
 return (NULL);
 word_count = count_words(str);
-words = malloc((word_count + 1) * sizeof(char *));
-if (words == NULL)
+if (word_count == 0)
 return (NULL);
 for (i = 0; i < word_count; i++)
 {

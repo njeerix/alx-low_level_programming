@@ -54,8 +54,11 @@ free(words);
 return (NULL);
 }
 for (j = 0; j < word_length; j++)
-words[i][j] = '\0';
+{
+words[i][j] = str[j];
 }
-words[word_count] = NULL;
+words[i][word_length] = '\0';
+str += word_length;
+}
 return (words);
 }

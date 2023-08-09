@@ -9,29 +9,26 @@
  */
 char *argstostr(int ac, char **av)
 {
-int arg_length = 0;
 int total_length = 0;
 char *concatenated;
 int position = 0;
-int i;
+int i, j;
 if (ac == 0 || av == NULL)
 return (NULL);
 for (i = 0; i < ac; i++)
 {
-while (av[i][arg_length] != '\0')
-arg_length++;
-total_length += arg_length + 1;
+for (j = 0; av[i][j] != '\0'; j++)
+total_length++;
 }
 concatenated = (char *)malloc((total_length + 1) * sizeof(char));
 if (concatenated == NULL)
 return (NULL);
 for (i = 0; i < ac; i++)
 {
-while (av[i][arg_length] != '\0')
+for (j = 0; av[i][j] != '\0'; j++)
 {
-concatenated[position] = av[i][arg_length];
+concatenated[position] = av[i][j];
 position++;
-arg_length++;
 }
 concatenated[position] = '\n';
 position++;

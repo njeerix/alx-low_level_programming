@@ -26,7 +26,6 @@ for (i = 0; i <num_bytes; i++)
 printf("%02x", (unsigned char)main_ptr[i]);
 if (i < num_bytes - 1)
 printf(" ");
-i++;
 }
 printf("\n");
 return (0);

@@ -21,11 +21,13 @@ return (2);
 }
 char *main_ptr = (char *)main;
 int i;
-for (i = 0; i <num_bytes; i++)
+i = 0;
+while (i < num_bytes)
 {
 printf("%02x", (unsigned char)main_ptr[i]);
 if (i < num_bytes - 1)
 printf(" ");
+i++;
 }
 printf("\n");
 return (0);

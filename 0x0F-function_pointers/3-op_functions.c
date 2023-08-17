@@ -6,7 +6,7 @@ int op_div(int a, int b);
 int op_mod(int a, int b);
 /**
  * op_add - Returns the sum of a and b.
- * @c: First integer
+ * @a: First integer
  * @b: Second integer
  * Return: Sum of a and b
  */

@@ -1,8 +1,8 @@
-SECTION .data
+section .data
    hello db "Hello, Holberton", 0
-   format db "%s\n", 0
+   format db "%s", 10, 0 ; Add a newline character after %s
 
-SECTION .text
+section .text
    extern printf
    global main
 

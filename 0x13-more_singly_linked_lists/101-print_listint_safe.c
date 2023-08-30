@@ -18,7 +18,9 @@ printf("-> [%p] %d\n", (void *)current, current->n);
 break;
 }
 if (count == 0)
+{
 loop_node = current;
+}
 current = current->next;
 count++;
 }

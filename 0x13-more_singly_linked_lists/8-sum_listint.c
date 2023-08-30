@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "lists.h"
 /**
- * sum_listint - Returns the sum of all the data (n) of a listint_t linked list.
+ * sum_listint - Returns the sum of all the data (n) of a listint_t.
  * @head: Pointer to the head of the list.
  * Return: Sum of the data (n) of the lined list, or 0 if the list is empty.
  */

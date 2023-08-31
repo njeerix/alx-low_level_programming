@@ -11,7 +11,7 @@ unsigned long int mask = 1;
 if (index >= sizeof(unsigned long int) * 8)
 return (-1);
 mask <<= index;
-mask = mask;
+mask = ~mask;
 *n = (*n) & mask;
 return (1);
 }

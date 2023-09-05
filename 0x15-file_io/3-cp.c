@@ -2,13 +2,11 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <errno.h>
 /**
- * main - Copy the content of one file to another file.
- * @argc: The number of argument strings.
- * Return: 0 on success, or exit with the appropriate error code.
+ * main - Entry point
+ * @argc: Argument count
+ * @argv: Argument vector
+ * Return: 0 on success,97 for usege error, 98 for read error
  */
 int main(int argc, char *argv[])
 {
@@ -16,14 +14,14 @@ int fd_form, fd_to, n_read, n_written;
 char buffer[1024];
 if (argc != 3)
 {
-dprintf(2, "Usage: %s file_from file_to\n", argv[0]);
-return (97);
+dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+exit(97);
 }
 fd_form = open(argv[1], O_RDONLY);
 if (fd_form == -1)
 {
-dprintf(2, "Error: Can't read from file %s\n", argv[1]);
-return (98);
+dprintf(STDERR_FILENO, "Error: Can't read from file  %s\n", argv[1]);
+exit(98);
 }
 fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 if (fd_to == -1)

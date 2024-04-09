@@ -12,20 +12,18 @@
  */
 int binary_search(int *array, size_t size, int value)
 {
-	size_t left = 0, right = size - 1, mid;
-
-	if (array == NULL)
-		return (-1);
+	size_t left = 0;
+	size_t right = size - 1;
+	size_t mid;
 
 	while (left <= right)
 	{
-		print_array(array, left, right);
+		mid = left + (right + left) / 2;
 
-		mid = (left + right) / 2;
+		printf("Searching in array: ");
 
 		if (array[mid] == value)
 			return (mid);
-
 		else if (array[mid] < value)
 			left = mid + 1;
 		else
@@ -33,23 +31,4 @@ int binary_search(int *array, size_t size, int value)
 	}
 
 	return (-1);
-}
-/**
- * print_array - prints an array of integers within a given range
- * @array: Pointer to the first element of the array
- * @start: Start index of the subarray to print
- * @end: End index of the subarray to print
- */
-void print_array(int *array, size_t start, size_t end)
-{
-	size_t i;
-
-	printf("Search in array: ");
-	for (i = start; i <= end; i++)
-	{
-		printf("%d", array[i]);
-		if (i < end)
-			printf(", ");
-	}
-	printf("\n");
 }
